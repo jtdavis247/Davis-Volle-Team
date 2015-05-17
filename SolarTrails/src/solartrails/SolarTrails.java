@@ -5,6 +5,7 @@
  */
 package solartrails;
 
+
 import byui.cit260.SolarTrails.model.Player;
 import byui.cit260.SolarTrails.model.Ship;
 import byui.cit260.SolarTrails.model.Falcon;
