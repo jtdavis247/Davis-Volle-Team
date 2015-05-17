@@ -67,7 +67,4 @@ public class Inventory implements Serializable{
         }
         return true;
     }
-    
-    
-    
 }
