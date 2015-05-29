@@ -11,8 +11,9 @@ package byui.cit260.SolarTrails.control;
  */
 public class InventoryControl {
     
-    public double calcFoodUsed(double timeLapsed, int crewSize, double foodUsed, int food) {
-       
+    public double calcFoodUsed(double timeLapsed, int crewSize, int food) {
+      
+      double foodUsed = 0;
       if (timeLapsed > 0 && crewSize > 0) {
             foodUsed = (timeLapsed * crewSize);
        }
