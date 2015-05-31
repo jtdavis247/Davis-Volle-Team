@@ -103,7 +103,172 @@ public class InventoryControlTest {
         // Compare expected return to actual return
         assertEquals(expResult, result, 0.01);
     }
-    
+    @Test
+    public void testCalcWaterUsed() {
+        System.out.println("calcWaterUsed");
+        
+        /*************************
+         * Test Case #1
+         ************************/
+        System.out.println("\tTest Case #1");
+        
+        // Input values
+        double timeLapsed = 2;
+        int crewSize = 5;
+        int water = 15;
+        
+        // Expected Output
+        double expResult = 10;
+        
+        // Create instance of class
+        InventoryControl instance = new InventoryControl();
+        
+        // Call function to test
+        double result = instance.calcFoodUsed(timeLapsed, crewSize, water);
+        
+        // Compare expected return to actual return
+        assertEquals(expResult, result, 0.01);
+        
+        /*************************
+         * Test Case #2
+         ************************/
+        System.out.println("\tTest Case #2");
+        
+        // Input values
+        timeLapsed = 3;
+        crewSize = 5;
+        water = 14;
+        
+        // Expected Output
+        expResult = -1;
+        
+        // Call function to test
+        result = instance.calcFoodUsed(timeLapsed, crewSize, water);
+        
+        // Compare expected return to actual return
+        assertEquals(expResult, result, 0.01);
+        
+        /*************************
+         * Test Case #3
+         ************************/
+        System.out.println("\tTest Case #3");
+        
+        // Input values
+        timeLapsed = 1;
+        crewSize = 4;
+        water = 4;
+        
+        // Expected Output
+        expResult = 4;
+        
+        // Call function to test
+        result = instance.calcFoodUsed(timeLapsed, crewSize, water);
+        
+        // Compare expected return to actual return
+        assertEquals(expResult, result, 0.01);
+        
+        /*************************
+         * Test Case #4
+         ************************/
+        System.out.println("\tTest Case #4");
+        
+        // Input values
+        timeLapsed = 1;
+        crewSize = 7;
+        water = 7;
+        
+        // Expected Output
+        expResult = 7;
+        
+        // Call function to test
+        result = instance.calcFoodUsed(timeLapsed, crewSize, water);
+        
+        // Compare expected return to actual return
+        assertEquals(expResult, result, 0.01);
+    }
+    @Test
+    public void testCalcluxuriesUsed() {
+        System.out.println("calcLuxuriesUsed");
+        
+        /*************************
+         * Test Case #1
+         ************************/
+        System.out.println("\tTest Case #1");
+        
+        // Input values
+        double timeLapsed = 2;
+        int crewSize = 5;
+        int luxuries = 15;
+        
+        // Expected Output
+        double expResult = 10;
+        
+        // Create instance of class
+        InventoryControl instance = new InventoryControl();
+        
+        // Call function to test
+        double result = instance.calcFoodUsed(timeLapsed, crewSize, luxuries);
+        
+        // Compare expected return to actual return
+        assertEquals(expResult, result, 0.01);
+        
+        /*************************
+         * Test Case #2
+         ************************/
+        System.out.println("\tTest Case #2");
+        
+        // Input values
+        timeLapsed = 3;
+        crewSize = 5;
+        luxuries = 14;
+        
+        // Expected Output
+        expResult = -1;
+        
+        // Call function to test
+        result = instance.calcFoodUsed(timeLapsed, crewSize, luxuries);
+        
+        // Compare expected return to actual return
+        assertEquals(expResult, result, 0.01);
+        
+        /*************************
+         * Test Case #3
+         ************************/
+        System.out.println("\tTest Case #3");
+        
+        // Input values
+        timeLapsed = 1;
+        crewSize = 4;
+        luxuries = 4;
+        
+        // Expected Output
+        expResult = 4;
+        
+        // Call function to test
+        result = instance.calcFoodUsed(timeLapsed, crewSize, luxuries);
+        
+        // Compare expected return to actual return
+        assertEquals(expResult, result, 0.01);
+        
+        /*************************
+         * Test Case #4
+         ************************/
+        System.out.println("\tTest Case #4");
+        
+        // Input values
+        timeLapsed = 1;
+        crewSize = 7;
+        luxuries = 7;
+        
+        // Expected Output
+        expResult = 7;
+        
+        // Call function to test
+        result = instance.calcFoodUsed(timeLapsed, crewSize, luxuries);
+        
+        // Compare expected return to actual return
+        assertEquals(expResult, result, 0.01);
+    }
     
     @Test
     public void testCalcFuelUsed() {

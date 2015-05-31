@@ -26,6 +26,33 @@ public class InventoryControl {
             return foodUsed;
         
     }
+    public double calcWaterUsed(double timeLapsed, int crewSize, int water) {
+      
+      double waterUsed = 0;
+      if (timeLapsed > 0 && crewSize > 0) {
+            waterUsed = (timeLapsed * crewSize);
+       }
+      if  (waterUsed > water) {
+            return -1;
+       }
+      else
+            return waterUsed;
+        
+    }
+    public double calcLuxuriesUsed(double timeLapsed, int crewSize, int luxuries) {
+      
+      double luxuriesUsed = 0;
+      if (timeLapsed > 0 && crewSize > 0) {
+            luxuriesUsed = (timeLapsed * crewSize);
+       }
+      if  (luxuriesUsed > luxuries) {
+            return -1;
+       }
+      else
+            return luxuriesUsed;
+        
+    }
+    
     
     public double calcFuelUsed(int[] origin, int[] destination, double amtFuel) {
         
