@@ -5,6 +5,8 @@
  */
 package byui.cit260.SolarTrails.view;
 
+import byui.cit260.SolarTrails.control.ProgramControl;
+import byui.cit260.SolarTrails.model.Player;
 import java.util.Scanner;
 
 /**
@@ -20,11 +22,17 @@ public class StartProgramView {
         this.displayBanner();
         
         //Get the players name 
-        String playersName = this.getPlayersName();
+        String playerName = this.getPlayerName();
         
         //Create a new player 
+        Player player = ProgramControl.createPlayer(playerName);
+        
         //DISPLAY a customized welcome message 
-        //DISPLAY the main menu 
+        this.displayWelcomeMessage(player);
+        
+        //DISPLAY the main menu
+        MainMenuView mainMenu = new MainMenuView();
+        mainMenu.displayMenu();
     }
 
     private void displayBanner() {
@@ -51,22 +59,31 @@ public class StartProgramView {
     
 }
 
-    private String getPlayersName() {
+    private String getPlayerName() {
         boolean valid = false; 
-        String playersName = null;
-        Scanner keyboard = new Scanner(System.in);
+        String playerName = null;
+        Scanner input = new Scanner(System.in);
         
         while(!valid) {
-            System.out.println("Enter the player's name below:");
+            System.out.println("Please enter your name below:");
+            playerName = input.nextLine();
+            playerName = playerName.trim();
             
             //if the name is invalid (less than two character in length))
-            if (playersName.length() < 2) {
+            if (playerName.length() < 2) {
                 System.out.println("Invalid name - the name must not be blank");
                 continue; // amd repeat again
             }
             break; //out of the (exit) repetition
         }
         
-        return playersName; // return the name
-        }
+        return playerName; // return the name
+    }
+
+    private void displayWelcomeMessage(Player player) {
+        System.out.println("\n\n=============================================");
+        System.out.println("\tWelcome to the game " + player.getName());
+        System.out.println("\tWe hope you have a lot of fun!");
+        System.out.println("=============================================");
+    }
 }

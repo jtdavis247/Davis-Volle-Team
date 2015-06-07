@@ -5,10 +5,16 @@
  */
 package byui.cit260.SolarTrails.control;
 
+import byui.cit260.SolarTrails.model.Player;
+
 /**
  *
  * @author jeff
  */
 public class GameControl {
+
+    public static void createNewGame(Player player) {
+        System.out.println("\n*** createNewGame function called ***");
+    }
     
 }
