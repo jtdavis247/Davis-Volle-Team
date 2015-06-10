@@ -8,7 +8,7 @@ package byui.cit260.SolarTrails.view;
 import byui.cit260.SolarTrails.control.GameControl;
 import java.util.Scanner;
 import solartrails.SolarTrails;
-/**
+/*
  *
  * @author Kyle
  */
@@ -57,7 +57,7 @@ public class MainMenuView {
         
         switch (choice) {
             case 'G':
-                this.startGame();
+                this.displayShipMenu();
                 break;
             case 'H':
                 this.displayHelpMenu();
@@ -90,6 +90,13 @@ public class MainMenuView {
         HelpMenuView helpMenu = new HelpMenuView();
         helpMenu.displayHelpMenu();
     }
+    
+      private void displayShipMenu() {
+        
+        ShipMenuView shipMenu = new ShipMenuView();
+        shipMenu.displayShipMenu();
+    }
+    
     
     private void saveGame() {
         System.out.println("*** saveGame function called ***");
