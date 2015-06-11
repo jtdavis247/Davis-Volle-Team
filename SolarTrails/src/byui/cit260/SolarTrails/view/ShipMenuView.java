@@ -58,13 +58,13 @@ public class ShipMenuView {
         
         switch (choice) {
             case 'F':
-                this.displayFalcon();
+                this.displayCrewMenu();
                 break;
             case 'D':
-                this.displayDiscovery();
+                this.displayCrewMenu();
                 break;
             case 'A':
-                this.displayDaedalus();
+                this.displayCrewMenu();
                 break;
             case 'Q':
                 return;
@@ -74,16 +74,9 @@ public class ShipMenuView {
         }
     }
     
-    private void displayFalcon() {
-        System.out.println("*** displayFalcon function called ***");
-    }
-
-    private void displayDiscovery() {
-        System.out.println("*** displayDiscovery function called ***");
-    }
-
-    private void displayDaedalus() {
-        System.out.println("*** displayDaedalus function called ***");
+    private void displayCrewMenu() {
+        CrewMenuView crewMenu = new CrewMenuView();
+        crewMenu.displayCrewMenu();
     }
     
 }
