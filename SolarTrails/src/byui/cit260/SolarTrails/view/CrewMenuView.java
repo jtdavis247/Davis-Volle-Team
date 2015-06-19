@@ -46,11 +46,12 @@ public class CrewMenuView extends View {
                 this.displayYeoman();
                 break;
             case 'Q':
-                return;
+                return true;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
         }
+        return false;
     }
     
     private void displayResearcher() {

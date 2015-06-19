@@ -48,11 +48,12 @@ public class ShipMenuView extends View{
                 this.displayCrewMenu();
                 break;
             case 'Q':
-                return;
+                return true;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
         }
+        return false;
     }
     
     private void displayCrewMenu() {

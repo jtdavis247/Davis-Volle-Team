@@ -60,11 +60,12 @@ public class HelpMenuView extends View {
                 this.displayHunt();
                 break;
             case 'Q':
-                return;
+                return true;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
         }
+        return false;
     }
 
     private void displayOverview() {
