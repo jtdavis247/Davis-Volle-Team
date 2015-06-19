@@ -12,9 +12,10 @@ import solartrails.SolarTrails;
  *
  * @author Kyle
  */
-public class MainMenuView {
+public class MainMenuView extends View {
     
-    private final String MENU = "\n"
+    public MainMenuView(){
+      super("\n"
             + "\n------------------------------------"
             + "\n| Main Menu                        |"
             + "\n------------------------------------"
@@ -23,37 +24,15 @@ public class MainMenuView {
             + "\nS - Save Game"
             + "\nL - Load Game"
             + "\nE - Exit"
-            + "\n------------------------------------";
-
-    public void displayMenu() {
-        
-        char selection = ' ';
-        do {
-            System.out.println(MENU);
-            
-            String input = this.getInput();
-            selection = input.charAt(0);
-            
-            this.doAction(selection);
-            
-        }while (selection != 'E');
-        
+            + "\n------------------------------------");
     }
     
-    private String getInput() {
+    @Override
+    public boolean doAction(Object obj) {
         
-        boolean valid = false; 
-        String selection = null;
-        Scanner input = new Scanner(System.in);
-        
-        System.out.println("Please enter your selection below:");
-        selection = input.nextLine();
-        selection = selection.trim();
-        return selection; // return the name
-    }
-    
-    
-    public void doAction(char choice) {
+        String value = (String) obj;
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
         
         switch (choice) {
             case 'G':
@@ -88,13 +67,13 @@ public class MainMenuView {
     private void displayHelpMenu() {
         
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayHelpMenu();
+        helpMenu.display();
     }
     
       private void displayShipMenu() {
         
         ShipMenuView shipMenu = new ShipMenuView();
-        shipMenu.displayShipMenu();
+        shipMenu.display();
     }
     
     

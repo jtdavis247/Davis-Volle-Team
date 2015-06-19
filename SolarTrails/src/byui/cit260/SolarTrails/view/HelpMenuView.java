@@ -12,50 +12,31 @@ import solartrails.SolarTrails;
  *
  * @author Kyle
  */
-public class HelpMenuView {
+public class HelpMenuView extends View {
     
-    private final String HELP_MENU = "\n"
-            + "\n------------------------------------"
-            + "\n| Help Menu                        |"
-            + "\n------------------------------------"
-            + "\nO - Overview"
-            + "\nP - Planning your trip"
-            + "\nS - Scientist Specializations"
-            + "\nT - Travel"
-            + "\nL - Locations"
-            + "\nF - Harvesting fuel"
-            + "\nH - Hunt for food and water"
-            + "\nQ - Quit"
-            + "\n------------------------------------";
+    public HelpMenuView(){
+        super( "\n"
+                + "\n------------------------------------"
+                + "\n| Help Menu                        |"
+                + "\n------------------------------------"
+                + "\nO - Overview"
+                + "\nP - Planning your trip"
+                + "\nS - Scientist Specializations"
+                + "\nT - Travel"
+                + "\nL - Locations"
+                + "\nF - Harvesting fuel"
+                + "\nH - Hunt for food and water"
+                + "\nQ - Quit"
+                + "\n------------------------------------");
+    }
 
-    public void displayHelpMenu() {
-        
-        char helpSelection = ' ';
-        do {
-            System.out.println(HELP_MENU);
-            
-            String input = this.getInput();
-            helpSelection = input.charAt(0);
-            
-            this.doHelpAction(helpSelection);
-            
-        }while (helpSelection != 'Q');
-    }
     
-    private String getInput() {
+    @Override
+    public boolean doAction(Object obj) {
         
-        boolean valid = false; 
-        String selection = null;
-        Scanner input = new Scanner(System.in);
-        
-        System.out.println("Please enter your selection below:");
-        selection = input.nextLine();
-        selection = selection.trim();
-        return selection; // return the name
-    }
-    
-    public void doHelpAction(char choice) {
-        
+        String value = (String) obj;
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
         switch (choice) {
             case 'O':
                 this.displayOverview();

@@ -13,8 +13,10 @@ import solartrails.SolarTrails;
  *
  * @author jeff
  */
-public class CrewMenuView {
-     private final String CREW_MENU = "\n"
+public class CrewMenuView extends View {
+    
+    public CrewMenuView(){
+     super( "\n"
             + "\n------------------------------------"
             + "\n  Please Select your crew                "
             + "\n------------------------------------"
@@ -24,35 +26,14 @@ public class CrewMenuView {
             + "\nE - Engineer"
             + "\nY - Yeoman"
             + "\nQ - Quit"
-            + "\n------------------------------------";
-    
-    public void displayCrewMenu() {
-        
-        char crewSelection = ' ';
-        do {
-            System.out.println(CREW_MENU);
-            
-            String input = this.getInput();
-            crewSelection = input.charAt(0);
-            
-            this.doCrewAction(crewSelection);
-            
-        }while (crewSelection != 'Q');
+            + "\n------------------------------------");
     }
     
-    private String getInput() {
-        
-        boolean valid = false; 
-        String selection = null;
-        Scanner input = new Scanner(System.in);
-        
-        System.out.println("Please enter your selection below:");
-        selection = input.nextLine();
-        selection = selection.trim();
-        return selection; // return the name
-    }
-    
-    public void doCrewAction(char choice) {
+    @Override
+    public boolean doAction(Object obj) {
+        String value = (String) obj;
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
         
         switch (choice) {
             case 'R':

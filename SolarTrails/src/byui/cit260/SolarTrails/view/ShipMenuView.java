@@ -14,9 +14,10 @@ import solartrails.SolarTrails;
  *
  * @author jeff
  */
-public class ShipMenuView {
+public class ShipMenuView extends View{
     
-    private final String SHIP_MENU = "\n"
+    public ShipMenuView(){
+    super( "\n"
             + "\n------------------------------------"
             + "\n  Please Choose a ship                "
             + "\n------------------------------------"
@@ -26,35 +27,15 @@ public class ShipMenuView {
             + "\nD - Discovery"
             + "\nA - Daedalus"
             + "\nQ - Quit"
-            + "\n------------------------------------";
-    
-    public void displayShipMenu() {
-        
-        char shipSelection = ' ';
-        do {
-            System.out.println(SHIP_MENU);
-            
-            String input = this.getInput();
-            shipSelection = input.charAt(0);
-            
-            this.doShipAction(shipSelection);
-            
-        }while (shipSelection != 'Q');
+            + "\n------------------------------------");
     }
     
-    private String getInput() {
+    @Override
+    public boolean doAction(Object obj) {
         
-        boolean valid = false; 
-        String selection = null;
-        Scanner input = new Scanner(System.in);
-        
-        System.out.println("Please enter your selection below:");
-        selection = input.nextLine();
-        selection = selection.trim();
-        return selection; // return the name
-    }
-    
-    public void doShipAction(char choice) {
+        String value = (String) obj;
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
         
         switch (choice) {
             case 'F':
@@ -76,7 +57,7 @@ public class ShipMenuView {
     
     private void displayCrewMenu() {
         CrewMenuView crewMenu = new CrewMenuView();
-        crewMenu.displayCrewMenu();
+        crewMenu.display();
     }
     
 }
