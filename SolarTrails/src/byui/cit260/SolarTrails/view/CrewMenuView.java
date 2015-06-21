@@ -25,7 +25,7 @@ public class CrewMenuView extends View {
             + "\nR - Researcher"
             + "\nE - Engineer"
             + "\nY - Yeoman"
-            + "\nQ - Quit"
+            + "\nS - Start Journey"
             + "\n------------------------------------");
     }
     
@@ -45,8 +45,9 @@ public class CrewMenuView extends View {
             case 'Y':
                 this.displayYeoman();
                 break;
-            case 'Q':
-                return true;
+            case 'S':
+                this.displayGameMenu();
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
@@ -66,4 +67,8 @@ public class CrewMenuView extends View {
         System.out.println("*** displayYeoman function called ***");
     }
     
+    private void displayGameMenu() {
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
+    }
 }

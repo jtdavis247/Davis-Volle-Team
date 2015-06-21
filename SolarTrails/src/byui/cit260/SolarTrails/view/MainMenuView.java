@@ -48,21 +48,12 @@ public class MainMenuView extends View {
                 this.loadGame();
                 break;
             case 'E':
-                return true;
+                System.exit(0);
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
-    }
-    
-    private void startGame() {
-        // Create a new game
-        GameControl.createNewGame(SolarTrails.getPlayer());
-        
-        // Display the game menu
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
     }
     
     private void displayHelpMenu() {
