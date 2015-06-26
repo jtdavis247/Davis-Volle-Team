@@ -12,22 +12,11 @@ import java.util.Objects;
  *
  * @author jeff
  */
-public class Actor implements Serializable{
-    private String name;
+public enum Actor implements Serializable{
 
     public Actor() {
     }
     
-    
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     @Override
     public String toString() {
         return "Actor{" + "name=" + name + '}';
