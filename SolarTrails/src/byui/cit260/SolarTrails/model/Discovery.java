@@ -14,10 +14,20 @@ import java.util.Objects;
 public class Discovery implements Serializable{
     private String name;
     private String description;
-    private Double cargoCapacity;
-    private Double Speed;
+    private int minCrew;
+    private int maxCrew;
+    private double cargoCapacity;
+    private int speed;
 
     public Discovery() {
+        this.name = "\nDiscovery";
+        this.description = "\nThis is a well balanced ship.  It offers enough space for"
+                         + "\n a full crew, plenty of cargo, and travels at a good speed.";
+        this.minCrew = 3;
+        this.maxCrew = 5;
+        this.cargoCapacity = 40;
+        this.speed = 2;
+        
     }
     
     
@@ -46,17 +56,17 @@ public class Discovery implements Serializable{
         this.cargoCapacity = cargoCapacity;
     }
 
-    public Double getSpeed() {
-        return Speed;
+    public int getSpeed() {
+        return speed;
     }
 
-    public void setSpeed(Double Speed) {
-        this.Speed = Speed;
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
 
     @Override
     public String toString() {
-        return "Discovery{" + "name=" + name + ", description=" + description + ", cargoCapacity=" + cargoCapacity + ", Speed=" + Speed + '}';
+        return "Discovery{" + "name=" + name + ", description=" + description + ", cargoCapacity=" + cargoCapacity + ", Speed=" + speed + '}';
     }
 
     @Override
@@ -65,7 +75,7 @@ public class Discovery implements Serializable{
         hash = 71 * hash + Objects.hashCode(this.name);
         hash = 71 * hash + Objects.hashCode(this.description);
         hash = 71 * hash + Objects.hashCode(this.cargoCapacity);
-        hash = 71 * hash + Objects.hashCode(this.Speed);
+        hash = 71 * hash + Objects.hashCode(this.speed);
         return hash;
     }
 
@@ -87,7 +97,7 @@ public class Discovery implements Serializable{
         if (!Objects.equals(this.cargoCapacity, other.cargoCapacity)) {
             return false;
         }
-        if (!Objects.equals(this.Speed, other.Speed)) {
+        if (!Objects.equals(this.speed, other.speed)) {
             return false;
         }
         return true;

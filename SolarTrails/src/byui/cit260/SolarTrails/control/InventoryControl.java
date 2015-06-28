@@ -5,6 +5,7 @@
  */
 package byui.cit260.SolarTrails.control;
 
+import byui.cit260.SolarTrails.model.InventoryItem;
 import java.text.DecimalFormat;
 
 /**
@@ -12,6 +13,8 @@ import java.text.DecimalFormat;
  * @author jeff
  */
 public class InventoryControl {
+    
+    
     
     public double calcFoodUsed(double timeLapsed, int crewSize, int food) {
       

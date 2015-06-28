@@ -36,7 +36,7 @@ public class MainMenuView extends View {
         
         switch (choice) {
             case 'G':
-                this.displayShipMenu();
+                this.startNewGame();
                 break;
             case 'H':
                 this.displayHelpMenu();
@@ -62,8 +62,10 @@ public class MainMenuView extends View {
         helpMenu.display();
     }
     
-      private void displayShipMenu() {
+    private void startNewGame() {
         
+        GameControl.createNewGame(SolarTrails.getPlayer());
+          
         ShipMenuView shipMenu = new ShipMenuView();
         shipMenu.display();
     }

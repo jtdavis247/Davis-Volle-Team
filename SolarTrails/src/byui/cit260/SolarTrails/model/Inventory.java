@@ -12,59 +12,20 @@ import java.util.Objects;
  *
  * @author Kyle
  */
-public class Inventory implements Serializable{
+public enum Inventory implements Serializable{
     
-    // class instance variables
+    Food("The stuff you eat."),
+    Water("The stuff you drink."),
+    Fuel("The stuff that makes your ship go."),
+    Luxuries("The stuff that keeps you sane on a long journey."),
+    Researh("This can only be gained by studying the alien object.");
+    
     private String inventoryType;
     private double typeQuantity;
 
-    public Inventory() {
+    Inventory(String inventoryType) {
+        this.inventoryType = inventoryType;
+        typeQuantity = 0;
     }
     
-    public String getInventoryType() {
-        return inventoryType;
-    }
-
-    public void setInventoryType(String inventoryType) {
-        this.inventoryType = inventoryType;
-    }
-
-    public double getTypeQuantity() {
-        return typeQuantity;
-    }
-
-    public void setTypeQuantity(double typeQuantity) {
-        this.typeQuantity = typeQuantity;
-    }
-
-    @Override
-    public String toString() {
-        return "Inventory{" + "inventoryType=" + inventoryType + ", typeQuantity=" + typeQuantity + '}';
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 59 * hash + Objects.hashCode(this.inventoryType);
-        hash = 59 * hash + (int) (Double.doubleToLongBits(this.typeQuantity) ^ (Double.doubleToLongBits(this.typeQuantity) >>> 32));
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Inventory other = (Inventory) obj;
-        if (!Objects.equals(this.inventoryType, other.inventoryType)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.typeQuantity) != Double.doubleToLongBits(other.typeQuantity)) {
-            return false;
-        }
-        return true;
-    }
 }

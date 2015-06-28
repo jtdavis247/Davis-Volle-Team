@@ -5,10 +5,74 @@
  */
 package solartrails;
 
+import byui.cit260.SolarTrails.model.InventoryItem;
+import byui.cit260.SolarTrails.model.Map;
+import byui.cit260.SolarTrails.model.Player;
+import byui.cit260.SolarTrails.model.Ship;
+import java.io.Serializable;
+
 /**
  *
  * @author Kyle
  */
-class Game {
+public class Game implements Serializable {
+    
+    private double totalTime;
+    private Ship ship;
+    private InventoryItem[] inventory;
+    private Player player;
+    private String[] actors;
+    private Map map;
+
+    public Game() {
+    }
+    
+    public double getTotalTime() {
+        return totalTime;
+    }
+    
+    public void setTotalTime(double totalTime) {
+        this.totalTime = totalTime;
+    }
+
+    public Ship getShip() {
+        return ship;
+    }
+
+    public void setShip(Ship ship) {
+        this.ship = ship;
+    }
+
+    public Inventory[] getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory[] inventory) {
+        this.inventory = inventory;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public String[] getActors() {
+        return actors;
+    }
+
+    public void setActors(String[] actors) {
+        this.actors = actors;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
     
 }

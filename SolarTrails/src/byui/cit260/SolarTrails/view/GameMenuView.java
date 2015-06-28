@@ -5,6 +5,9 @@
  */
 package byui.cit260.SolarTrails.view;
 
+import byui.cit260.SolarTrails.control.GameControl;
+import byui.cit260.SolarTrails.model.InventoryItem;
+
 /**
  *
  * @author Kyle
@@ -20,6 +23,8 @@ public class GameMenuView extends View {
             + "\nH - Hunt for food and water"
             + "\nF - Harvest fuel"
             + "\nR - Rest"
+            + "\nI - View ship inventory"
+            + "\nS - View ship status"
             + "\nT - Travel"
             + "\nQ - Quit to main menu"
             + "\n------------------------------------");
@@ -44,6 +49,12 @@ public class GameMenuView extends View {
                 break;
             case 'R':
                 this.displayRestMenu();
+                break;
+            case 'I':
+                this.displayInventory();
+                break;
+            case 'S':
+                this.displayShipStatus();
                 break;
             case 'T':
                 this.displayTravelMenu();
@@ -82,5 +93,22 @@ public class GameMenuView extends View {
     private void displayMainMenu() {
         MainMenuView mainMenu = new MainMenuView();
         mainMenu.display();
+    }
+
+    private void displayInventory() {
+        InventoryItem[] inventory = GameControl.getSortedInventoryList();
+        
+        System.out.println("\nList of Inventory Items");
+        System.out.println("Description" + "\t" + "Amount");
+        
+        for (InventoryItem inventoryItem : inventory) {
+            System.out.println(inventoryItem.getDescription());
+            System.out.println("\t   ");
+            System.out.println(inventoryItem.getAmount());
+        }
+    }
+
+    private void displayShipStatus() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

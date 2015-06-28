@@ -5,6 +5,7 @@
  */
 package byui.cit260.SolarTrails.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -12,38 +13,25 @@ import java.util.Objects;
  *
  * @author jeff
  */
-public enum Actor implements Serializable{
+public enum Actor implements Serializable {
+    
+    NOVA("This is the ship's low-functioning AI, in charge of monitoring systems."),
+    Conscience("This is you, talking in your head.  You are pretty smart, you know.  You should listen to yourself.");
+    
+    private final String description;
+    private final Point coordinates; 
 
-    public Actor() {
+    Actor(String description) {
+        this.description = description;
+        coordinates = new Point(1,1);
     }
     
-    @Override
-    public String toString() {
-        return "Actor{" + "name=" + name + '}';
+    public String getDescription() {
+        return description;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 37 * hash + Objects.hashCode(this.name);
-        return hash;
+    public Point getCoordinates() {
+        return coordinates;
     }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Actor other = (Actor) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        return true;
-    }
-    
-    
     
 }

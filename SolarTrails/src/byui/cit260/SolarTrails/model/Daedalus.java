@@ -15,10 +15,20 @@ public class Daedalus implements Serializable{
     
     private String name;
     private String description;
-    private Double cargoCapacity;
-    private Double Speed;
+    private int minCrew;
+    private int maxCrew;
+    private double cargoCapacity;
+    private int speed;
 
     public Daedalus() {
+        this.name = "\nDaedalus";
+        this.description = "\nThis is the space program's flagship.  It may be slow, but "
+                         + "\n it has plenty of space for crew and cargo.";
+        this.minCrew = 4;
+        this.maxCrew = 7;
+        this.cargoCapacity = 75;
+        this.speed = 1;
+        
     }
     
 
@@ -46,17 +56,17 @@ public class Daedalus implements Serializable{
         this.cargoCapacity = cargoCapacity;
     }
 
-    public Double getSpeed() {
-        return Speed;
+    public int getSpeed() {
+        return speed;
     }
 
-    public void setSpeed(Double Speed) {
-        this.Speed = Speed;
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
 
     @Override
     public String toString() {
-        return "Daedalus{" + "name=" + name + ", description=" + description + ", cargoCapacity=" + cargoCapacity + ", Speed=" + Speed + '}';
+        return "Daedalus{" + "name=" + name + ", description=" + description + ", cargoCapacity=" + cargoCapacity + ", Speed=" + speed + '}';
     }
 
     @Override
@@ -65,7 +75,7 @@ public class Daedalus implements Serializable{
         hash = 29 * hash + Objects.hashCode(this.name);
         hash = 29 * hash + Objects.hashCode(this.description);
         hash = 29 * hash + Objects.hashCode(this.cargoCapacity);
-        hash = 29 * hash + Objects.hashCode(this.Speed);
+        hash = 29 * hash + Objects.hashCode(this.speed);
         return hash;
     }
 
@@ -87,7 +97,7 @@ public class Daedalus implements Serializable{
         if (!Objects.equals(this.cargoCapacity, other.cargoCapacity)) {
             return false;
         }
-        if (!Objects.equals(this.Speed, other.Speed)) {
+        if (!Objects.equals(this.speed, other.speed)) {
             return false;
         }
         return true;

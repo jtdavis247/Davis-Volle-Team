@@ -15,27 +15,27 @@ import java.util.Objects;
 public class Location implements Serializable{
     
     // class instance variables
-    private double row;
-    private double column;
+    private int row;
+    private int column;
     private boolean visited;
-    private String event;
+    private Scene scene;
 
     public Location() {
     }
 
-    public double getRow() {
+    public int getRow() {
         return row;
     }
 
-    public void setRow(double row) {
+    public void setRow(int row) {
         this.row = row;
     }
 
-    public double getColumn() {
+    public int getColumn() {
         return column;
     }
 
-    public void setColumn(double column) {
+    public void setColumn(int column) {
         this.column = column;
     }
 
@@ -47,17 +47,17 @@ public class Location implements Serializable{
         this.visited = visited;
     }
 
-    public String getEvent() {
-        return event;
+    public Scene getScene() {
+        return scene;
     }
 
-    public void setEvent(String event) {
-        this.event = event;
+    public void setScene(Scene scene) {
+        this.scene = scene;
     }
 
     @Override
     public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", event=" + event + '}';
+        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", scene=" + scene + '}';
     }
 
     @Override
@@ -66,7 +66,7 @@ public class Location implements Serializable{
         hash = 29 * hash + (int) (Double.doubleToLongBits(this.row) ^ (Double.doubleToLongBits(this.row) >>> 32));
         hash = 29 * hash + (int) (Double.doubleToLongBits(this.column) ^ (Double.doubleToLongBits(this.column) >>> 32));
         hash = 29 * hash + (this.visited ? 1 : 0);
-        hash = 29 * hash + Objects.hashCode(this.event);
+        hash = 29 * hash + Objects.hashCode(this.scene);
         return hash;
     }
 
@@ -88,7 +88,7 @@ public class Location implements Serializable{
         if (this.visited != other.visited) {
             return false;
         }
-        if (!Objects.equals(this.event, other.event)) {
+        if (!Objects.equals(this.scene, other.scene)) {
             return false;
         }
         return true;
