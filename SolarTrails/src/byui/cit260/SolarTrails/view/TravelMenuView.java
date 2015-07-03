@@ -6,6 +6,10 @@
 package byui.cit260.SolarTrails.view;
 
 import byui.cit260.SolarTrails.control.GameControl;
+import byui.cit260.SolarTrails.control.MapControl;
+import byui.cit260.SolarTrails.model.Discovery;
+import byui.cit260.SolarTrails.model.Ship;
+import java.lang.reflect.Array;
 import java.util.Scanner;
 import solartrails.SolarTrails;
 
@@ -18,7 +22,7 @@ public class TravelMenuView extends View{
     public TravelMenuView(){
     super( "\n"
             + "\n------------------------------------"
-            + "\n  Where would you like to Travel to?                "
+            + "\n  Where would you like to Travel to?"
             + "\n------------------------------------"
             + "\n| Ship Menu                        |"
             + "\n------------------------------------"
@@ -38,7 +42,7 @@ public class TravelMenuView extends View{
         
         switch (choice) {
             case 'F':
-                this.displayLocationMenu();
+                this.displayTimeLapsed();
                 break;
             case 'D':
                 this.displayLocationMenu();
@@ -57,6 +61,15 @@ public class TravelMenuView extends View{
 
     private void displayLocationMenu() {
         System.out.println("*** displayLocationMenu function called ***");
+    }
+
+    private void displayTimeLapsed() {
+        int[] origin = {1,1};
+        int[] destination = {1,1};
+        Discovery discovery = new Discovery();
+        int shipSpeed = Discovery.getSpeed();
+        MapControl calcTimeLapsed = new MapControl();
+        double timeLapsed = MapControl.calcTimeLapsed();
     }
     
 }

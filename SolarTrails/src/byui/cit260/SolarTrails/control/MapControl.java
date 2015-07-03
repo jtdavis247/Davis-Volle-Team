@@ -10,8 +10,10 @@ package byui.cit260.SolarTrails.control;
  * @author kyle
 */
 
+import byui.cit260.SolarTrails.model.Actor;
 import byui.cit260.SolarTrails.model.Map;
 import byui.cit260.SolarTrails.model.Scene;
+import java.awt.Point;
 import java.text.DecimalFormat;
 import javax.swing.ImageIcon;
 
@@ -36,6 +38,10 @@ public class MapControl {
     static ImageIcon getImage(Scene startingScene, String byuicit260SolarTrailsimagesearthjpg) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    private static int moveActorsToStartingLocation(Actor actor, Point coordinates) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public double calcTimeLapsed(int[] origin, int[] destination, int shipSpeed) 
         throws MapControlException{
@@ -53,6 +59,17 @@ public class MapControl {
         }
         timeLapsed = Double.parseDouble(round.format(timeLapsed));
         return timeLapsed;
+    }
+    
+    public static int moveActorsToStartingLocation(Map map) 
+                        throws MapControlException {
+        Actor[] actors = Actor.values();
+        
+        for (Actor actor : actors) {
+            Point coordinates = actor.getCoordinates();
+            int returnValue = MapControl.moveActorsToStartingLocation(actor, coordinates);
+        }
+        return 0;
     }
     
 }
