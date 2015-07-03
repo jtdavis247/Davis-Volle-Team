@@ -10,5 +10,9 @@ package byui.cit260.SolarTrails.control;
  * @author Kyle
  */
 class MapControlException extends Exception {
+
+    MapControlException(String you_player_has_not_moved) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

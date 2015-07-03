@@ -37,7 +37,8 @@ public class MapControl {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    public double calcTimeLapsed(int[] origin, int[] destination, int shipSpeed) {
+    public double calcTimeLapsed(int[] origin, int[] destination, int shipSpeed) 
+        throws MapControlException{
         
         DecimalFormat round = new DecimalFormat("#.##");
         
@@ -45,7 +46,7 @@ public class MapControl {
         double timeLapsed;
         
         if (origin[0] == destination[0] && origin[1] == destination[1]) {
-            return -1;
+            throw new MapControlException("You player has not moved.");
         } else {
             distance = Math.sqrt(Math.pow((destination[0] - origin[0]), 2) + Math.pow((destination[1] - origin[1]), 2));
             timeLapsed = distance / shipSpeed;
