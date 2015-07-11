@@ -14,6 +14,7 @@ import byui.cit260.SolarTrails.model.Player;
 import byui.cit260.SolarTrails.model.Scene;
 import byui.cit260.SolarTrails.model.SceneType;
 import byui.cit260.SolarTrails.model.Ship;
+import byui.cit260.SolarTrails.view.ErrorView;
 import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 import solartrails.Game;
@@ -41,6 +42,59 @@ public class GameControl {
         Map map = MapControl.createMap();
         game.setMap(map);
         
+    }
+    public static void saveGame(Game game, String filepath)
+            throws GameControlException {
+        
+        try (FileOutStream fops = new FileOutStream(filepath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(game); //write the game object out to file
+        }
+        catch(IOException e) {
+            throw new GameControlException(e.getMessage());
+        }
+    }
+    private void startSavedGame () {
+    
+        // prompt for and get the name of the file to save the game in
+        System.out.println("\n\Enter the file path for the file where the game is saved "
+                            + "is to be saved");
+        
+        String filePAth = this.getImput();
+        
+        try {
+            //start a saved game
+            GameControl.getSavedGame(filePath);
+        } catch (exception ex) {
+            ErrorView.display("MainMenuView", ex. getMessage());
+        }
+        
+        // display the game Menu
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
+    }
+    public static void loadGame(String filepath)
+            throws GameControlException {
+    Game game = null;
+    try(FileInputStream fips = new FileInputStream(filepath)) {
+        ObjectInputStream output = new ObjectInputStream(fips);
+        
+        game = (Game) output.readObject(); // read the game object from file
+        
+    } catch(FileNotFoundException fnfe) {
+        throw new GameControlException(fnfe.getMEssage());
+    }
+    catch(Exception e) {
+        throw new GameControlException(e.getMessage());
+    }
+    catch(Exception e) {
+        throw new GameControlException(e.getMessage());
+    }
+    
+    //close the output file
+    
+    SolarTrails.setCurrentGame(game);
     }
     
     public static InventoryItem[] createInventoryList() {

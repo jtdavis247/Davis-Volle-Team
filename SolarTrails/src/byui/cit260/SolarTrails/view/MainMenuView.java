@@ -72,7 +72,15 @@ public class MainMenuView extends View {
     
     
     private void saveGame() {
-        System.out.println("*** saveGame function called ***");
+        System.out.println("\n\n Enter the file path for file where the game " + "is to be saved.");
+        String filePath = this.getInput();
+        
+        try {
+            // Save the Game to the specified file
+            GameControl.saveGame(SolarTrails.getCurrentGame(), filePath);
+        } catch (Exception ex) {
+            ErrorView.display()("mainMenuView", ex.getMessage())
+        }
     }
     
     private void loadGame() {

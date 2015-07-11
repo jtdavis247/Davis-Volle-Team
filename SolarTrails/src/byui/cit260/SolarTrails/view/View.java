@@ -5,7 +5,10 @@
  */
 package byui.cit260.SolarTrails.view;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import solartrails.SolarTrails;
 
 /**
  *
@@ -14,6 +17,9 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface{
     
     private String promptMessage;
+    
+    protected final BufferedReader keyboard = SolarTrails.getInFile();
+    protected final PrintWriter console = SolarTrails.getOutFile();
     
     public View(String promptMessage) {
         this.promptMessage = promptMessage;
@@ -24,7 +30,7 @@ public abstract class View implements ViewInterface{
         String value;
         boolean done = false;
         do {
-            System.out.println(this.promptMessage);
+            this.console.println(this.promptMessage);
             value = this.getInput();
             done = this.doAction(value);
             
@@ -35,19 +41,28 @@ public abstract class View implements ViewInterface{
     @Override
     public String getInput() {
        
-        Scanner keyboard = new Scanner(System.in);
+        
         boolean valid = false; 
         String value = null;
         
-        while (!valid) {
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if (value.length() < 1){
-                System.out.println("You must enter a value.");
-                continue;
+        try {
+        
+            while (!valid) {
+
+                value = this.keyboard.readLine();
+                value = value.trim();
+
+
+
+                if (value.length() < 1){
+                    ErrorView.display.(this.getClass().getName(),"You must enter a value.");
+                    continue;
+                }
+                break;
             }
-            break;
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName, "Error reading input: " + e.getMessage());
+            return null;
         }
         return value;
     }
