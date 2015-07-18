@@ -64,12 +64,7 @@ public class TravelMenuView extends View{
     }
 
     private void displayTimeLapsed() {
-        int[] origin = {1,1};
-        int[] destination = {1,1};
-        Discovery discovery = new Discovery();
-        int shipSpeed = Discovery.getSpeed();
-        MapControl calcTimeLapsed = new MapControl();
-        double timeLapsed = MapControl.calcTimeLapsed();
+     System.out.println("*** displayLocationMenu function called ***");    
     }
-    
 }
+    

@@ -79,7 +79,7 @@ public class MainMenuView extends View {
             // Save the Game to the specified file
             GameControl.saveGame(SolarTrails.getCurrentGame(), filePath);
         } catch (Exception ex) {
-            ErrorView.display()("mainMenuView", ex.getMessage())
+            ErrorView.display(filePath, filePath);
         }
     }
     
