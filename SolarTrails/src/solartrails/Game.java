@@ -6,6 +6,7 @@
 package solartrails;
 
 import byui.cit260.SolarTrails.model.InventoryItem;
+import byui.cit260.SolarTrails.control.InventoryControl;
 import byui.cit260.SolarTrails.model.Map;
 import byui.cit260.SolarTrails.model.Player;
 import byui.cit260.SolarTrails.model.Ship;
@@ -43,14 +44,6 @@ public class Game implements Serializable {
         this.ship = ship;
     }
 
-    public Inventory[] getInventory() {
-        return inventory;
-    }
-
-    public void setInventory(Inventory[] inventory) {
-        this.inventory = inventory;
-    }
-
     public Player getPlayer() {
         return player;
     }
@@ -73,6 +66,14 @@ public class Game implements Serializable {
 
     public void setMap(Map map) {
         this.map = map;
+    }
+
+    public void setInventory(InventoryItem[] inventoryList) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public InventoryItem[] getInventory() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

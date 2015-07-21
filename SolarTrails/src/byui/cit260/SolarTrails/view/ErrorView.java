@@ -16,18 +16,15 @@ public class ErrorView {
     
     private static final PrintWriter errorfile = SolarTrails.getOutFile();
     private static Object errorFile;
+    private static Object logFile;
     
     public static void display(String className, String errorMessage) {
-    
-        errorFile.println (
-                "--------------------------------------"
+    /*
+        errorFile.println("--------------------------------------"
               + "\n- ERROR - " + errorMessage
               + "\n -----------------------------------");
         // log error
-        logFile.println(className + " - " + errorMessage);
+        logFile.println(className + " - " + errorMessage);*/
     }
-
-    static void display() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }

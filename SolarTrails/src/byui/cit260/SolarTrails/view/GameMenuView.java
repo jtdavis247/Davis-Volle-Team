@@ -22,9 +22,7 @@ public class GameMenuView extends View {
             + "\nD - Display your location"
             + "\nH - Hunt for food and water"
             + "\nF - Harvest fuel"
-            + "\nR - Rest"
             + "\nI - View ship inventory"
-            + "\nS - View ship status"
             + "\nT - Travel"
             + "\nQ - Quit to main menu"
             + "\n------------------------------------");
@@ -47,14 +45,8 @@ public class GameMenuView extends View {
             case 'F':
                 this.displayHarvestFuelMenu();
                 break;
-            case 'R':
-                this.displayRestMenu();
-                break;
             case 'I':
                 this.displayInventory();
-                break;
-            case 'S':
-                this.displayShipStatus();
                 break;
             case 'T':
                 this.displayTravelMenu();
@@ -81,10 +73,6 @@ public class GameMenuView extends View {
         System.out.println("*** displayHarvestFuelMenu function called ***");
     }
 
-    private void displayRestMenu() {
-        System.out.println("*** displayRestMenu function called ***");
-    }
-
     private void displayTravelMenu() {
         TravelMenuView travelMenu = new TravelMenuView();
         travelMenu.display();
@@ -106,9 +94,5 @@ public class GameMenuView extends View {
             System.out.println("\t   ");
             System.out.println(inventoryItem.getAmount());
         }
-    }
-
-    private void displayShipStatus() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

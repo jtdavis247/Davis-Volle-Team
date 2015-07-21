@@ -66,8 +66,8 @@ public class MainMenuView extends View {
         
         GameControl.createNewGame(SolarTrails.getPlayer());
           
-        ShipMenuView shipMenu = new ShipMenuView();
-        shipMenu.display();
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
     
     
