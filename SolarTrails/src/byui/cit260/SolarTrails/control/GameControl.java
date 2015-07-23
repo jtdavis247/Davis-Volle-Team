@@ -5,21 +5,18 @@
  */
 package byui.cit260.SolarTrails.control;
 
-import byui.cit260.SolarTrails.model.Inventory;
+import byui.cit260.SolarTrails.exceptions.MapControlException;
+
 import byui.cit260.SolarTrails.model.InventoryItem;
-import byui.cit260.SolarTrails.model.Item;
-import byui.cit260.SolarTrails.model.Location;
+
 import byui.cit260.SolarTrails.model.Map;
 import byui.cit260.SolarTrails.model.Player;
 import byui.cit260.SolarTrails.model.Scene;
 import byui.cit260.SolarTrails.model.SceneType;
 import byui.cit260.SolarTrails.model.Ship;
-import byui.cit260.SolarTrails.view.ErrorView;
+
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.swing.ImageIcon;
 import solartrails.Game;
 import solartrails.SolarTrails;

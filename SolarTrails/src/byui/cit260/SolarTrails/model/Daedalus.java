@@ -15,8 +15,8 @@ public class Daedalus implements Serializable{
     
     private String name;
     private String description;
-    private int minCrew;
-    private int maxCrew;
+    private final int minCrew;
+    private final int maxCrew;
     private double cargoCapacity;
     private int speed;
 

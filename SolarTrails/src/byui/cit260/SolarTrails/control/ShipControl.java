@@ -11,4 +11,5 @@ package byui.cit260.SolarTrails.control;
  */
 public class ShipControl {
     
+    
 }

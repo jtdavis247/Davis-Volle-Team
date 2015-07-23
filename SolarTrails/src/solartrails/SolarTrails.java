@@ -56,12 +56,14 @@ public class SolarTrails {
                     new BufferedReader (new InputStreamReader(System.in));
             SolarTrails.outFile = new PrintWriter (System.out, true);
             
+            StartProgramView.startProgramView = new StartProgramView();
+            
             
             try {
                 //open log file
                 String filePath = "log.txt";
                 SolarTrails.logFile = new PrintWriter(filePath);
-            } catch (Exception e) {
+            } catch (Throwable e) {
                 System.out.println("exception: " + e.toString() +
                                "\nCause: " + e.getCause() +
                                "\nMessage: " + e.getMessage());

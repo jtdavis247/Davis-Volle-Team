@@ -10,6 +10,7 @@ package byui.cit260.SolarTrails.control;
  * @author kyle
 */
 
+import byui.cit260.SolarTrails.exceptions.MapControlException;
 import byui.cit260.SolarTrails.model.Actor;
 import byui.cit260.SolarTrails.model.Location;
 import byui.cit260.SolarTrails.model.Map;
@@ -18,6 +19,7 @@ import byui.cit260.SolarTrails.model.SceneType;
 import java.awt.Point;
 import java.text.DecimalFormat;
 import javax.swing.ImageIcon;
+import solartrails.SolarTrails;
 
 public class MapControl {
 
@@ -145,15 +147,25 @@ public class MapControl {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private static int moveActorToLocation(Actor actor, Point coordinates) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    private static int moveActorToLocation(Actor actor, Point coordinates) throws MapControlException {
+        
+        Map map;
+        map = SolarTrails.getCurrentGame().getMap();
+        int newRow = coordinates.x-1;
+        int newColumn = coordinates.y-1;
 
-    public static double calcTimeLapsed() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        if (newRow < 0 || newRow >= map.getNoOfRows() || newColumn < 0 || 
+            newColumn >= map.getNoOfColumns()) {
+            throw new MapControlException("because location is outside the bounds"
+                    + "Can't move ator to location "
+                    + coordinates.x + "," + coordinates.y );
+        }
+        return 0;
+        
+        }
+
     
-    public double calcTimeLapsed(int[] origin, int[] destination, int shipSpeed) 
+    public static double calcTimeLapsed(int[] origin, int[] destination, int shipSpeed) 
         throws MapControlException{
         
         DecimalFormat round = new DecimalFormat("#.##");

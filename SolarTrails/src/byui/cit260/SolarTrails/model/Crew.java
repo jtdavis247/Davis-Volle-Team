@@ -6,6 +6,7 @@
 package byui.cit260.SolarTrails.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 /**
  *
@@ -14,6 +15,7 @@ import java.util.Objects;
 public class Crew implements Serializable{
     private int crewSize;
     private Double crewComposition;
+    ArrayList crewMembers = new ArrayList();
 
     public Crew() {
     }

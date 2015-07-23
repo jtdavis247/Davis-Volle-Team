@@ -10,5 +10,8 @@ package byui.cit260.SolarTrails.control;
  * @author jeff
  */
 public class HarvestControl {
+    public static int gatherResources (){
+        return 0;
     
+    }
 }

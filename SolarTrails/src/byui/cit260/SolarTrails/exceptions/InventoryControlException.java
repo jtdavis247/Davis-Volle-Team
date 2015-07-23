@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package byui.cit260.SolarTrails.control;
+package byui.cit260.SolarTrails.exceptions;
 
 /**
  *
  * @author jeff
  */
-class GameControlException extends Exception {
+public class InventoryControlException {
     
 }

@@ -9,6 +9,7 @@ import byui.cit260.SolarTrails.control.GameControl;
 import byui.cit260.SolarTrails.control.MapControl;
 import byui.cit260.SolarTrails.model.Discovery;
 import byui.cit260.SolarTrails.model.Ship;
+import static java.lang.System.in;
 import java.lang.reflect.Array;
 import java.util.Scanner;
 import solartrails.SolarTrails;
@@ -36,28 +37,30 @@ public class TravelMenuView extends View{
     @Override
     public boolean doAction(Object obj) {
         
-        String value = (String) obj;
-        value = value.toUpperCase();
-        char choice = value.charAt(0);
         
-        switch (choice) {
-            case 'F':
-                this.displayTimeLapsed();
-                break;
-            case 'D':
-                this.displayLocationMenu();
-                break;
-            case 'A':
-                this.displayLocationMenu();
-                break;
-            case 'Q':
-                return true;
-            default:
-                System.out.println("\n*** Invalid selection *** Try again");
-                break;
-        }
+        
         return false;
     }
+    private int getRow() {
+      int row;
+ 
+      Scanner in = new Scanner(System.in);
+      System.out.println("Enter a row");
+      row = in.nextInt();
+      
+        return row;
+   
+   }
+    private int getColumn() {
+      int column;
+ 
+      Scanner in = new Scanner(System.in);
+      System.out.println("Enter a column");
+      column = in.nextInt();
+      
+        return column;
+   
+   }
 
     private void displayLocationMenu() {
         System.out.println("*** displayLocationMenu function called ***");
